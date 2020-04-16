@@ -1,0 +1,4 @@
+module hcapiplugin {
+    umbrella "/Users/joseguilhermebestel/Dropbox (DeveloperAcademy-BR)/Academy/Backend Kitura/KituraServer/Server/.build/checkouts/omr-agentcore/src/hcapiplugin/include"
+    export *
+}
