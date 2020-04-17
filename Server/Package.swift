@@ -9,13 +9,17 @@ let package = Package(
       .package(url: "https://github.com/IBM-Swift/CloudEnvironment.git", from: "9.0.0"),
       .package(url: "https://github.com/RuntimeTools/SwiftMetrics.git", from: "2.0.0"),
       .package(url: "https://github.com/IBM-Swift/Health.git", from: "1.0.0"),
+      .package(url: "https://github.com/IBM-Swift/Kitura-OpenAPI.git", from: "1.1.1"),
+      .package(url: "https://github.com/IBM-Swift/Swift-Kuery-ORM.git", from: "0.3.1"),
+      .package(url: "https://github.com/IBM-Swift/Swift-Kuery-PostgreSQL.git", from: "1.2.0"),
+      .package(url: "https://github.com/IBM-Swift/Kitura-CredentialsHTTP.git", from: "2.1.0"),
     ],
     targets: [
       .target(name: "Server", dependencies: [ .target(name: "Application") ]),
-      .target(name: "Application", dependencies: [ "Kitura", "HeliumLogger", "CloudEnvironment","SwiftMetrics", "Health", 
+      .target(name: "Application", dependencies: [ "Kitura", "HeliumLogger", "CloudEnvironment","SwiftMetrics", "Health", "KituraOpenAPI", "SwiftKueryPostgreSQL", "SwiftKueryORM", "CredentialsHTTP"
 
       ]),
 
-      .testTarget(name: "ApplicationTests" , dependencies: [.target(name: "Application"), "Kitura", "HeliumLogger" ])
+      .testTarget(name: "ApplicationTests" , dependencies: [.target(name: "Application"), "Kitura", "HeliumLogger", "KituraOpenAPI", "SwiftKueryPostgreSQL", "SwiftKueryORM", "CredentialsHTTP" ])
     ]
 )

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Server::Server"
-               BuildableName = "Server"
-               BlueprintName = "Server"
+               BlueprintIdentifier = "Server::Application"
+               BuildableName = "Application.framework"
+               BlueprintName = "Application"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Server::Application"
-               BuildableName = "Application.framework"
-               BlueprintName = "Application"
+               BlueprintIdentifier = "Server::Server"
+               BuildableName = "Server"
+               BlueprintName = "Server"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
