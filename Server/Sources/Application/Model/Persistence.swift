@@ -9,10 +9,14 @@ import Foundation
 import SwiftKueryORM
 import SwiftKueryPostgreSQL
 import LoggerAPI
+import HeliumLogger
 
 class Persistence{
     
     static func setUp(){
+        let logger = HeliumLogger(.verbose)
+        Log.logger = logger
+        
         let pool = PostgreSQLConnection.createPool(
             host: ProcessInfo.processInfo.environment["DBPOST"] ?? "localhost",
             port: 5432,
@@ -39,6 +43,16 @@ class Persistence{
         }catch let error{
             if let requestError = error as? RequestError, requestError.rawValue == RequestError.ormQueryError.rawValue{
                 Log.info("\(UserAuth.tableName) already created")
+            }else{
+                Log.error(error as! String)
+            }
+        }
+        do{
+            try Reflection.createTableSync()
+            Log.info("\(Reflection.tableName) created")
+        }catch let error{
+            if let requestError = error as? RequestError, requestError.rawValue == RequestError.ormQueryError.rawValue{
+                Log.info("\(Reflection.tableName) already created")
             }else{
                 Log.error(error as! String)
             }
